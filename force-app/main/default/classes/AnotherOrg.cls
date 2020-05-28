@@ -4,7 +4,7 @@ public with sharing class AnotherOrg
     public static void callApi(String cID)
     {
         Contact conFromSF = [select id,Email from contact where ID= :cID];
-        //Changed code
+
         // First Getting the Token value from settings
         mahijat__APIBuild__c TokenRes = getTokenFromSettings();
         String AuthorizationHeaderValue = 'Bearer '+TokenRes.get('mahijat__AccessTokenValue__c').toString();
