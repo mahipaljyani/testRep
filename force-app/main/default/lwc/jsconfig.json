@@ -44,6 +44,15 @@
             ],
             "c/bearTile": [
                 "bearTile/bearTile.js"
+            ],
+            "c/bearMap": [
+                "bearMap/bearMap.js"
+            ],
+            "c/interactiveMap": [
+                "interactiveMap/interactiveMap.js"
+            ],
+            "c/bearOldestListComp": [
+                "bearOldestListComp/bearOldestListComp.js"
             ]
         }
     },
