@@ -26,6 +26,21 @@
             ],
             "c/dualListLWC": [
                 "dualListLWC/dualListLWC.js"
+            ],
+            "c/lWCTrainingComp": [
+                "lWCTrainingComp/lWCTrainingComp.js"
+            ],
+            "c/helloWebComponent": [
+                "helloWebComponent/helloWebComponent.js"
+            ],
+            "c/bearList": [
+                "bearList/bearList.js"
+            ],
+            "c/bearLocation": [
+                "bearLocation/bearLocation.js"
+            ],
+            "c/bearSupervisor": [
+                "bearSupervisor/bearSupervisor.js"
             ]
         }
     },
