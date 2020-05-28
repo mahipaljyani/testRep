@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Loans</fullName>
+    <columns>NAME</columns>
+    <columns>Loan_Name__c</columns>
+    <columns>Loan_Amount__c</columns>
+    <columns>Total_Number_Of_Installments__c</columns>
+    <columns>Tenure_for_loan_in_months__c</columns>
+    <columns>Loan_rate_of_interest__c</columns>
+    <columns>Avg_Installment_Amount__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>All Loans</label>
+</ListView>

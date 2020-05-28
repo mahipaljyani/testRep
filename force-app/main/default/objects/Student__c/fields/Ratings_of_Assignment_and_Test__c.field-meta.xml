@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ratings_of_Assignment_and_Test__c</fullName>
+    <externalId>false</externalId>
+    <label>Ratings of Assignment and Test</label>
+    <summarizedField>Rating__c.Rating_Out_of_10__c</summarizedField>
+    <summaryFilterItems>
+        <field>Rating__c.Rating_For__c</field>
+        <operation>equals</operation>
+        <value>Assignment</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Rating__c.Rating_For__c</field>
+        <operation>equals</operation>
+        <value>Test</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Rating__c.Student__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

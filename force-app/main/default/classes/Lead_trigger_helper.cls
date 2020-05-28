@@ -2,9 +2,11 @@ public class Lead_trigger_helper {
     public static void Q6(List<lead> myLead)
     {
         //List<Lead> myLead = trigger.new;
+        System.debug(myLead);
         List<Database.LeadConvert> cnLeads = new List<Database.LeadConvert>();
         for(integer i=0; i<mylead.size(); i++)
         {
+            System.debug(mylead[i]);
             if(mylead[i].LeadSource=='Phone Inquiry')
             {
                 Database.LeadConvert lc = new Database.LeadConvert();

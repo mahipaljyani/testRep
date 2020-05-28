@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Branch_Contact_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+ (LEN( Branch_Contact__c ) = 0) || (LEN( Branch_Contact__c ) = 10 &amp;&amp;  ISNUMBER( Branch_Contact__c )) 
+,
+
+ false,
+
+ true)</errorConditionFormula>
+    <errorDisplayField>Branch_Contact__c</errorDisplayField>
+    <errorMessage>Branch Contact number can only 10 digit numberic value.</errorMessage>
+</ValidationRule>

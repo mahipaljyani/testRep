@@ -1,0 +1,84 @@
+<aura:component controller="q2CompController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="acDetail" type="Account" default="{}"/>
+    <aura:attribute name="ConList" type="Contact[]"/>
+    <aura:attribute name="OppList" type="Opportunity[]"/>
+    <aura:attribute name="ShowContact" type="Boolean" default="false"/>
+    <aura:attribute name="ShowOpp" type="Boolean" default="false"/>
+    
+    <lightning:card title="Account">
+        <lightning:recordEditForm objectApiName="Account">
+            <lightning:inputField fieldName="Name" value="{!v.acDetail.Name}"/>
+            <lightning:inputField fieldName="Phone" value="{!v.acDetail.Phone}"/>
+            <lightning:inputField fieldName="AnnualRevenue" value="{!v.acDetail.AnnualRevenue}"/>
+        </lightning:recordEditForm>
+        
+        <lightning:button variant="brand" label="Add Contacts" title="Add Contacts" onclick="{! c.conBlockChange }" />
+        <lightning:button variant="brand" label="Add Opportunities" title="Add Opportunities" onclick="{! c.oppBlockChange }" />
+    </lightning:card>
+    <aura:if isTrue="{!v.ShowOpp}">
+        <lightning:card title="Opportunities">
+            <div aura:id="oppTable">
+                <table>
+                    <aura:iteration items="{!v.OppList}" var="opp">
+                        <tr>
+                            <div class="">
+                                <lightning:recordEditForm objectApiName="Opportunity">
+                                    <td> 
+                                        <lightning:inputField fieldName="Name" value="{!opp.Name}"/>
+                                    </td>
+                                    <td>
+                                        <lightning:inputField fieldName="CloseDate" value="{!opp.CloseDate}"/>
+                                    </td>
+                                    <td>
+                                        <lightning:inputField fieldName="StageName" value="{!opp.StageName}"/>
+                                    </td>
+                                    <td>
+                                        <lightning:inputField fieldName="Amount" value="{!opp.Amount}"/>
+                                    </td>
+                                </lightning:recordEditForm>
+                            </div>
+                        </tr>
+                    </aura:iteration>
+                </table>
+            </div>
+            <div>
+                    <lightning:button variant="success" label="Add More Opportunity" title="Add More Opportunity" onclick="{! c.AddOppRow }"/>
+                </div>
+        </lightning:card>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.ShowContact}">
+        <lightning:card title="Contacts">
+            <div aura:id="conTable">
+                <table>
+                    <aura:iteration items="{!v.ConList}" var="con">
+                        <tr>
+                            <div class="">
+                                <lightning:recordEditForm objectApiName="Contact">
+                                    <td> 
+                                        <lightning:inputField fieldName="LastName" value="{!con.LastName}"/>
+                                    </td>
+                                    <td>
+                                        <lightning:inputField fieldName="Phone" value="{!con.Phone}"/>
+                                    </td>
+                                    <td>
+                                        <lightning:inputField fieldName="Email" value="{!con.Email}"/>
+                                    </td>
+                                    <td>
+                                        <lightning:inputField fieldName="Department" value="{!con.Department}"/>
+                                    </td>
+                                </lightning:recordEditForm>
+                            </div>
+                        </tr>
+                    </aura:iteration>
+                </table>
+            </div>
+            <div>
+                <lightning:button variant="success" label="Add More Contact" title="Add More Contact" onclick="{! c.AddConRow }"/>
+            </div>
+        </lightning:card>
+    </aura:if>
+    <lightning:card title="">
+        <lightning:button variant="success" label="Save All" title="Save All" onclick="{! c.SaveAll }"/>
+    </lightning:card>
+</aura:component>

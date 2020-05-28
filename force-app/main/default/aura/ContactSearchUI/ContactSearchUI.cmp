@@ -1,0 +1,43 @@
+<aura:component controller= "ContactSearchController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="SearchTextValue" type="String" />
+    <aura:attribute name="allConList" type="Contact[]" />
+    <aura:attribute name="singleContact" type="Contact" />
+    
+    <aura:handler event="c:SearchText" action="{!c.performSearch}"/>
+    <aura:handler event="c:ViewContact" action="{!c.viewContactInfo}"/>
+    <aura:handler event="aura:locationChange" action="{!c.locationChange}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.LoadAllContacts}"/>
+    
+    <lightning:card>
+        <div class="slds-grid slds-gutters">
+           
+            <div class="slds-col slds-size_1-of-2" style = "height:500px">
+                 <lightning:input type="text" name="SearchInput" value="{!v.SearchTextValue}"  onkeyup="{!c.searchTextChange}" />
+                <span>
+                    <div class="slds-scrollable_y">
+                     <ul class="slds-has-dividers_top slds-has-block-links_space">
+                        <aura:iteration items="{!v.allConList}" var="con">
+                            <li class="slds-item">
+                                <b><a href="{! '#contact/' + con.Id }"> {!con.Id}  </a> </b> <br/>
+                                {!con.Name}
+                            </li>
+                        </aura:iteration> 
+                    </ul>
+                    </div>
+                   
+                </span>
+            </div>
+           <div class="slds-col slds-size_1-of-2 slds-scrollable_y" style = "height:500px">
+                <span>
+                    <lightning:recordForm
+                                          recordId="{!v.singleContact.Id}"
+                                          objectApiName="Contact"
+                                          layoutType="Compact"
+                                          columns="2"
+                                          mode="readonly" />
+                </span>
+            </div>
+        </div>
+    </lightning:card>    
+</aura:component>

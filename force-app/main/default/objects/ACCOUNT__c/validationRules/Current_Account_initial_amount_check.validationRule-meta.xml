@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Account_initial_amount_check</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+       ISPICKVAL( Account_Type__c , &apos;Current Account&apos;) &amp;&amp;   Available_Balance_In_Account__c  &lt; 25000
+       ,
+
+        true,
+
+       false
+)</errorConditionFormula>
+    <errorDisplayField>Initial_Amount__c</errorDisplayField>
+    <errorMessage>Total amount for current account should be greater than 25000</errorMessage>
+</ValidationRule>

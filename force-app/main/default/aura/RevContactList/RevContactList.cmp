@@ -1,0 +1,15 @@
+<aura:component controller="ContactSearchController"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="allConList" type="Contact[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.LoadAllContacts}"/>
+    <aura:handler  event="c:RevSearchTextEvent" action="{!c.searchKeyChange}"/>
+    
+    <aura:iteration items="{!v.allConList}" var="con">
+        <div class="slds-item slds-border_bottom">
+            <b>
+                <a onclick="{!c.viewDetails}" id="{!con.Id}" >{!con.Name}  </a> 
+            </b> 
+            <br/>
+            {!con.Phone}
+        </div>
+    </aura:iteration> 
+</aura:component>

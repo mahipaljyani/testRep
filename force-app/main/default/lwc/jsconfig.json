@@ -2,7 +2,32 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "c/helloWorld": [
+                "helloWorld/helloWorld.js"
+            ],
+            "c/classroomAssignment": [
+                "classroomAssignment/classroomAssignment.js"
+            ],
+            "c/testComp": [
+                "testComp/testComp.js"
+            ],
+            "c/parentLwc": [
+                "parentLwc/parentLwc.js"
+            ],
+            "c/contactSearchLWC": [
+                "contactSearchLWC/contactSearchLWC.js"
+            ],
+            "c/lWCApexMethodDemo": [
+                "lWCApexMethodDemo/lWCApexMethodDemo.js"
+            ],
+            "c/childLwc": [
+                "childLwc/childLwc.js"
+            ],
+            "c/dualListLWC": [
+                "dualListLWC/dualListLWC.js"
+            ]
+        }
     },
     "include": [
         "**/*",

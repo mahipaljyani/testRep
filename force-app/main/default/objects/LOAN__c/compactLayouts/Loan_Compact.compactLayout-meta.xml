@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loan_Compact</fullName>
+    <fields>Loan_Name__c</fields>
+    <fields>Loan_Amount__c</fields>
+    <fields>Loan_rate_of_interest__c</fields>
+    <label>Loan Compact</label>
+</CompactLayout>

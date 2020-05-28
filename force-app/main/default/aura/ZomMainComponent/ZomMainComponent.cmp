@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="RestKeyword" type="String" />
+    <aura:attribute name="RestData" type="Object"/>
+    <aura:attribute name="RestId" type="String"/>
+    
+    <lightning:card title="Contact Search">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-3 slds-scrollable_y" style = "height:500px">
+                <c:getRestaurantIdFromUser RestKeyword= "{!v.RestKeyword}"/>
+                <c:ZomRestList RestKeyword= "{!v.RestKeyword}" RestId="{!v.RestId}"/>
+            </div>
+            <div class="slds-col slds-size_2-of-3 slds-scrollable_y" style = "height:500px">
+                <c:ZomRestDetail  RestId="{!v.RestId}"/>
+            </div>
+        </div>        
+    </lightning:card>
+</aura:component>

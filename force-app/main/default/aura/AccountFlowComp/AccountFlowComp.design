@@ -1,0 +1,9 @@
+<design:component>
+    <design:attribute name="greeting"/>
+    <design:attribute name="subject" />
+    <design:attribute name="testVal" />    
+    <design:attribute name="valuesString" />   
+    <design:attribute name="valuesStringFromFlow" />   
+    
+    
+</design:component>

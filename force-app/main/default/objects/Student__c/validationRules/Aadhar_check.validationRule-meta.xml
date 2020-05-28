@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Aadhar_check</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(    ( LEN( Aadhar_Card_Number__c ) = 12 ) &amp;&amp; 
+        (ISNUMBER(Aadhar_Card_Number__c ) 
+       ),
+    
+   false,
+    
+   true
+)</errorConditionFormula>
+    <errorDisplayField>Aadhar_Card_Number__c</errorDisplayField>
+    <errorMessage>Aadhar number should be 12 digit and should not contains any value other than numbers.</errorMessage>
+</ValidationRule>

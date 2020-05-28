@@ -1,0 +1,11 @@
+<aura:component  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="RestData" type="Object"/>
+    <aura:attribute name="RestLocData" type="Object[]"/>
+    <aura:attribute name="RestKeyword" type="String"/>
+ <!--   <aura:handler name="init" value="{!this}" action="{!c.LoadRestDetail}"/> -->
+
+    <lightning:card title="Zomato Restaurant">
+        <lightning:input type="text" name="rest_id" label="Enter City Keyword" value="{!v.RestKeyword}"/>
+       <!-- <lightning:button variant="brand" label="Search" title="Search" onclick="{!c.changeKeyword }" /> -->
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Remaing_Installment_check</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+
+ Remaing_Installments__c &lt; 0 ||  Total_Installments_Paid__c = 0,
+
+ true,
+
+ false
+
+)</errorConditionFormula>
+    <errorDisplayField>Total_Installments_Paid__c</errorDisplayField>
+    <errorMessage>Total Paid Installments cannot be greater than total installments or equals to zero.</errorMessage>
+</ValidationRule>

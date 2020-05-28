@@ -1,0 +1,50 @@
+<aura:component controller="testAccountController"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="acList" type="Account[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.LoadList}"/>
+    
+    
+    <lightning:card title="Account">
+        <lightning:recordEditForm onsuccess="{!c.LoadList}" objectApiName="Account">
+            <lightning:inputField fieldName="Name" />
+            <lightning:inputField fieldName="Phone" />
+            <lightning:inputField fieldName="AnnualRevenue" />
+            <lightning:inputField fieldName="Rating" />
+            
+            <div class="slds-m-top_medium">
+                <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save" />
+            </div>
+        </lightning:recordEditForm>
+    </lightning:card>
+    <lightning:card title="All Accounts">
+        <div style="height: 300px">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Phone">Phone</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Annual Revenue">Annual Revenue</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Rating">Rating</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.acList}" var="item">
+                        <tr class="slds-line-height_reset">
+                            <td class="" scope="col">{!item.Name}</td>
+                            <td class="" scope="col">{!item.Phone}</td>
+                            <td class="" scope="col">{!item.AnnualRevenue}</td>
+                            <td class="" scope="col">{!item.Rating}</td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+    </lightning:card>
+</aura:component>

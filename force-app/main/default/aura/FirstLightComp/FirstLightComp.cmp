@@ -1,0 +1,33 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <lightning:card title="My card">
+        <lightning:breadcrumbs>
+            <lightning:breadcrumb label="Homepage" href="/account" />
+            <lightning:breadcrumb label="Case" href="path/to/place/2" />
+        </lightning:breadcrumbs>
+        <lightning:recordViewForm  recordId="0012w000002g6UBAAY" objectApiName="Account">
+            <lightning:outputField fieldName="Name" />
+            <lightning:outputField fieldName="AnnualRevenue" />
+            <lightning:outputField fieldName="Rating" />
+        </lightning:recordViewForm>
+        <b>Edit Form </b>
+        <lightning:recordEditForm objectApiName="Account">
+            
+            <lightning:inputField fieldName="Name" />
+            <lightning:inputField fieldName="AnnualRevenue" />
+            <lightning:inputField fieldName="Rating" />
+            
+            <div class="slds-m-top_medium">
+                <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save" />
+            </div>
+        </lightning:recordEditForm>
+   <!--     <div class="exampleHolder">
+            <lightning:spinner alternativeText="Loading" size="medium" />
+        </div>  -->	
+        <lightning:select name="select1" label="How many tickets?" required="true">
+            <option value="">choose one...</option>
+            <option value="1">one</option>
+            <option value="2">two</option>
+            <option value="3">three</option>
+        </lightning:select>
+    </lightning:card>
+</aura:component>

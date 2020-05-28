@@ -1,4 +1,9 @@
-public class Assignment1 {
+global class Assignment1 implements Schedulable{
+    global static void execute(SchedulableContext sc)
+    {
+        list<list<String>> l1 = new list<list<String>>{};
+        Assignment1.r1(l1);
+    }
 	public static void r1(list<list<String>> final_lst)
     {
         list<list<String>> result_lst = new list<list<String>>();

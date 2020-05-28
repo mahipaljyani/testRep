@@ -1,0 +1,7 @@
+<aura:component controller="ContactSearchController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:registerEvent name="searchTextChange" type="c:RevSearchTextEvent" />
+    <aura:attribute name="SearchTextValue" type="String"/>
+    
+	<lightning:input type="text" name="searchTextField" value="{!v.SearchTextValue}"  onkeyup="{!c.setInputText}" />
+
+</aura:component>

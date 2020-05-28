@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Account_Balance_Check</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF( ISPICKVAL( Transaction_Type__c , &apos;Withdraw&apos;) &amp;&amp; 
+ ISPICKVAL( Transaction_From_Account_Number__r.Account_Type__c , &apos;Current Account&apos;) &amp;&amp;  (Transaction_From_Account_Number__r.Available_Balance_In_Account__c -  Transaction_Amount__c &gt; 25000)
+, 
+
+false, 
+
+true
+)</errorConditionFormula>
+    <errorDisplayField>Transaction_Amount__c</errorDisplayField>
+    <errorMessage>Current Account&apos;s minimum balance cannot be less than 25000</errorMessage>
+</ValidationRule>

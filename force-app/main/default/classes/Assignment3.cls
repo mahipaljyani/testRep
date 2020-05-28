@@ -8,7 +8,6 @@ public class Assignment3 {
             if( (l2.contains(value)) && (l3.contains(value)) )
                 final_set.add(value);
         }
-        System.debug(final_set);
-        
+        System.debug(final_set);        
     }
 }

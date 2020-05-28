@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Saving_Minor_Account_initial_amt_check</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+       ISPICKVAL( Account_Type__c , &apos;Saving Minor Account&apos;) &amp;&amp;   Available_Balance_In_Account__c &lt; 2500
+       ,
+
+        true,
+
+       false
+)</errorConditionFormula>
+    <errorDisplayField>Initial_Amount__c</errorDisplayField>
+    <errorMessage>Total amount for saving minor account should be greater than 2500</errorMessage>
+</ValidationRule>

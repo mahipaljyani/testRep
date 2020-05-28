@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute  name="first" type="Integer" />
+    <aura:attribute name="Second" type="Integer" />
+    <aura:attribute name="sum" type="Integer" />
+    
+    <lightning:card title="Calculator">
+        <lightning:input type="number" name="input1" label="Enter First number" value="{!v.first}" />
+        <lightning:input type="number" name="input2" label="Enter Second number"  value="{!v.Second}"/>
+        <lightning:button variant="brand" label="Calculate" title="Calculate" onclick="{!c.myAction }"/>
+        <lightning:input type="number" name="sum1" label="Result" value="{!v.sum}" disabled="true"/>
+    </lightning:card>
+</aura:component>

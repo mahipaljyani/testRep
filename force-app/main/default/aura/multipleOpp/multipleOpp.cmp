@@ -1,0 +1,38 @@
+<aura:component controller="multipleOppController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="counter" type="Integer" default="1"/>
+    <aura:attribute name="OppList" type="Opportunity[]"/>
+    
+    <lightning:card  title="Hello" >
+        <div aura:id="oppTable">
+            <table>
+                <aura:iteration items="{!v.OppList}" var="opp">
+                    <tr>
+                        <div class="slds-grid slds-wrap">
+                            <lightning:recordEditForm objectApiName="Opportunity">
+                                <td> 
+                                    <div class="">                        
+                                        <lightning:inputField fieldName="Name" value="{!opp.Name}"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="">                        
+                                        <lightning:inputField fieldName="CloseDate" value="{!opp.CloseDate}"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="">                        
+                                        <lightning:inputField fieldName="StageName" value="{!opp.StageName}"/>
+                                    </div>
+                                </td>
+                            </lightning:recordEditForm>
+                        </div>
+                    </tr>
+                </aura:iteration>
+            </table>
+        </div>
+        <div><a onclick="{!c.AddRow}">Add Row</a></div>
+        <div>
+            <lightning:button variant="brand" label="Insert records" title="Insert records" onclick="{!c.insertRecords}" />
+        </div>
+    </lightning:card>
+</aura:component>

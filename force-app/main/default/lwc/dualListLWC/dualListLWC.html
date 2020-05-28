@@ -1,0 +1,51 @@
+<template>
+    
+      <lightning-button label="getAccounts" variant="brand" icon-name="standard:account" onclick={getallaccounts}></lightning-button>
+        <lightning-layout>
+            
+          <lightning-layout-item>
+            <div>
+              <div class="slds-card">
+              <div class="slds-p-around_medium">
+                <ul class="slds-list_ordered" style="list-style-type: none;">
+                  <template for:each={AllAccounts} for:item="account">
+                      <li key={account.Id}>
+                          <lightning-input type="checkbox" name="Ghumao" label={account.Name} value={account.Id} ></lightning-input>
+                          {account.Name}
+                      </li>
+                  </template>
+                </ul>
+              
+              </div>
+              </div>
+            </div>
+           
+              
+          </lightning-layout-item>
+          
+          <lightning-layout-item>
+            <lightning-button label=">>" variant="brand" onclick={sendRight}></lightning-button>
+            <br/>
+            <br/>
+            <br/>
+            <lightning-button label="<<" variant="brand" onclick={sendLeft}></lightning-button>
+          </lightning-layout-item>
+          <lightning-layout-item>
+            <div>
+              <div class="slds-card">
+              <div class="slds-p-around_medium">
+                <ul class="slds-list_ordered" style="list-style-type: none;">
+                  <template for:each={selectedAccounts} for:item="account">
+                    <li key={account.Id}>
+                        <lightning-input type="checkbox" name="GharJanaHai" label={account.Name} value={account.Id} ></lightning-input>
+                        {account.Name}
+                    </li>
+                </template>
+                </ul>
+                </div>
+                </div>
+            </div>
+          </lightning-layout-item>
+        </lightning-layout>
+    
+</template>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Branch_name_check</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+     REGEX(    Name , &apos;^[A-Za-z- ]+$&apos;) , 
+
+    false, 
+ 
+    true
+)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Branch name can only have alphabetical characters.</errorMessage>
+</ValidationRule>

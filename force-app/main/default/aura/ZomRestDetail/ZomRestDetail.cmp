@@ -1,0 +1,14 @@
+<aura:component controller="ZomatoAPI" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="RestLocData" type="Object[]"/>
+    <aura:attribute name="RestData" type="Object"/>
+    <aura:attribute name="RestId" type="String"/>
+    
+    <aura:handler name="change" value="{!v.RestId}" action="{!c.restIdChange}"/>
+    <aura:handler name="change" value="{!v.RestLocData}" action="{!c.searchKeyChange}"/>
+
+    <h2>{!v.RestData.name}</h2>
+    <img src="{!v.RestData.photos[0].photo.url}" style="height:300px;width:300px"/>
+    <lightning:map 
+                   mapMarkers="{! v.RestLocData }" 
+                   zoomLevel="16"/>
+</aura:component>

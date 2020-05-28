@@ -1,0 +1,14 @@
+<aura:component controller="getOppDataUI" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="opplist" type="Opportunity[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>
+    
+        <aura:iteration items="{!v.opplist}" var="opp">
+            <lightning:card title="{!opp.Name}" class="cardBody__c" >
+                <lightning:input name="Id" label="Id" value="{!opp.Id}" />
+                <lightning:input name="anem" label="Name" value="{!opp.Name}" />
+                <lightning:input name="Id" label="Close Date" value="{!opp.CloseDate}" />
+            </lightning:card>            
+        </aura:iteration> 
+    
+</aura:component>

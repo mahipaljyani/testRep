@@ -1,0 +1,96 @@
+<template>
+    <lightning-card title="Classroom Arragement">
+        <lightning-layout>
+            <lightning-layout-item>
+                <lightning-combobox name="class" label="Select Class" value={value} placeholder="Select Class"
+                    options={AllClasses} onchange={classChanged}></lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <lightning-input type="checkbox" value="Tabular" label="Tabular" onchange={enableTabular}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <lightning-input type="checkbox" value="Graphical" label="Graphical" onchange={enableGraphical}>
+                </lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-1">
+                    <template if:true={tabularView}>
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <td class="" scope="col">
+                                        <div class="slds-truncate" title="Roll No">Roll No</div>
+                                    </td>
+                                    <td class="" scope="col">
+                                        <div class="slds-truncate" title="Name">Name</div>
+                                    </td>
+                                    <td class="" scope="col">
+                                        <div class="slds-truncate" title="Action">Action</div>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={AllStudents} for:item="Student">
+                                    <tr key={Student.Id} class="slds-hint-parent">
+                                        <td data-label={Student.Name}>
+                                            <div class="slds-truncate" title={Student.Name}>{Student.Name}</div>
+                                        </td>
+                                        <td data-label={Student.mahijat__Student_Name__c}>
+                                            <div class="slds-truncate" title={Student.mahijat__Student_Name__c}>
+                                                {Student.mahijat__Student_Name__c}
+                                            </div>
+                                        </td>
+                                        <td data-label="Action">
+                                            <div class="slds-truncate" title="Action">
+                                                <lightning-button variant="base" label="Select This" title=""
+                                                    icon-name="utility:add" class="slds-m-left_x-small"
+                                                    value={Student.Id} onclick={selectStudent}>
+                                                </lightning-button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </template>
+                </div>
+            </div>
+        </lightning-layout>
+        <lightning-layout>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-1">
+                    <template if:true={graphicalView}>
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                            <tbody>
+                                <template for:each={assignedStudents} for:item="Student" for:index="index">
+                                    <tr key={Student.Id} class="slds-hint-parent">
+                                        <td data-seatno={index}>
+                                            <template if:true={Student.mahijat__Seat_Assigned__c}>
+                                                <div> 
+                                                    <span data-studentid={Student.Id} data-seatno={index}>{Student.mahijat__Student_Name__c} </span> &nbsp;&nbsp;
+                                                    <span onclick={assignSeat} data-seatno={index}>+(Assign This)</span>
+                                                </div>
+                                            </template>
+                                            <template if:false={Student.mahijat__Seat_Assigned__c}>
+                                                <div> 
+                                                    <span onclick={assignSeat} data-seatno={index}>+(Assign This)</span>
+                                                </div>
+                                            </template>
+                                            
+                                                <!-- <lightning-button variant="base" label="" title="" icon-name="utility:add"
+                                            class="slds-m-left_x-small" id={Student.Id} > 
+                                        </lightning-button>-->
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </template>
+                </div>
+            </div>
+        </lightning-layout>
+    </lightning-card>
+</template>

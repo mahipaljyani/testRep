@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dob_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+ YEAR(DATEVALUE(NOW())) - YEAR( Date_Of_Birth__c ) &lt;=18
+,
+
+ true, 
+
+false)</errorConditionFormula>
+    <errorMessage>Age must be greate than 18</errorMessage>
+</ValidationRule>

@@ -1,0 +1,84 @@
+<aura:component controller="leadConvertController" implements="force:lightningQuickActionWithoutHeader,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" >
+    <aura:attribute name="acDetail" type="Account" default="{}"/>
+    <aura:attribute name="ConList" type="Contact" default="{}"/>
+    <aura:attribute name="OppList" type="Opportunity" default="{}"/>
+    <aura:attribute name="LeadVal" type="Lead" default="{}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="ErrorMessage" type="String" />
+    
+    
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around–medium {
+        padding: 0rem !important;
+        }
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+    </aura:html>
+    
+    <div class="model-header slds-model__header slds-size_1-of-1" align="center">
+        <h4 class="title slds-text-heading--medium"> Convert Lead </h4>
+        <hr/>
+    </div>
+    
+    <div>
+        {!v.ErrorMessage}
+    </div>
+    
+    
+    <lightning:accordion aura:id="accordion" activeSectionName="B">
+        <lightning:accordionSection name="Create New Account" label="Create New Account">
+            <lightning:card title="">
+                <lightning:recordEditForm objectApiName="Account">
+                    <lightning:inputField fieldName="Name" value="{!v.acDetail.Name}"/>
+                    <lightning:inputField fieldName="Type" value="{!v.acDetail.Type}"/>
+                    <lightning:inputField fieldName="Phone" value="{!v.acDetail.Phone}"/>
+                    <lightning:inputField fieldName="Website" value="{!v.acDetail.Website}"/>
+                    <lightning:inputField fieldName="Industry" value="{!v.acDetail.Industry}"/>
+                </lightning:recordEditForm>
+            </lightning:card>
+        </lightning:accordionSection>
+        <lightning:accordionSection name="Create New Opportunity" label="Create New Opportunity">
+            <lightning:card title="">
+                <div aura:id="oppTable">
+                    <lightning:recordEditForm objectApiName="Opportunity">
+                        <lightning:inputField fieldName="Name" value="{!v.OppList.Name}"/>
+                        <!--<lightning:inputField fieldName="Account Name" value="{!v.OppList.AccountId}"/>-->
+                        <lightning:inputField fieldName="CloseDate" value="{!v.OppList.CloseDate}"/>
+                        <lightning:inputField fieldName="StageName" value="{!v.OppList.StageName}"/>
+                        <lightning:inputField fieldName="Amount" value="{!v.OppList.Amount}"/>
+                        <lightning:inputField fieldName="LeadSource" value="{!v.OppList.LeadSource}"/>
+                    </lightning:recordEditForm>
+                </div>
+            </lightning:card>
+        </lightning:accordionSection>
+        <lightning:accordionSection name="Create New Contact" label="Create New Contact">
+            <lightning:card title="">
+                <div aura:id="conTable">
+                    <lightning:recordEditForm objectApiName="Contact">
+                        <lightning:inputField fieldName="Salutation" value="{!v.ConList.Salutation}"/>
+                        <lightning:inputField fieldName="FirstName" value="{!v.ConList.FirstName}"/>
+                        <lightning:inputField fieldName="LastName" value="{!v.ConList.LastName}"/>
+                        <lightning:inputField fieldName="Title" value="{!v.ConList.Title}"/>
+                        <!--<lightning:inputField fieldName="AccountId" value="{!v.ConList.AccountId}"/> -->
+                        <lightning:inputField fieldName="Phone" value="{!v.ConList.Phone}"/>
+                        <lightning:inputField fieldName="Email" value="{!v.ConList.Email}"/>
+                        
+                    </lightning:recordEditForm>
+                </div>
+            </lightning:card>
+        </lightning:accordionSection>
+    </lightning:accordion>
+    
+    <footer>
+        <div class="slds-col model-footer slds-model__footer" style="float:right" >
+            <lightning:button variant="success" label="Convert Lead" title="Convert Lead" onclick="{! c.SaveAll }"/>
+        </div>
+    </footer>
+</aura:component>

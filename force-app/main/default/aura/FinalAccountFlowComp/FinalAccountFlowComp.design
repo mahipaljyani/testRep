@@ -1,0 +1,4 @@
+<design:component> 
+    <design:attribute name="valuesStringFromFlow" />   
+    <design:attribute name="valuesStringFromAura" />    
+</design:component>
