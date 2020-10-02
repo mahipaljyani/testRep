@@ -1,5 +1,6 @@
 @RESTResource(urlMapping='/AccountManagement/')
 global class AccountManagemntAPI {
+    //To get the account information
     @HTTPGet
     global static String getInfoByID(){
         String ObjectName, IDValue, fieldValue, fieldName;
@@ -16,6 +17,7 @@ global class AccountManagemntAPI {
         return strResponse;
     }
     
+    // For creating a new account object record in sf
     @HTTPPost
     global static String createAccount(){
        // String fieldValue, fieldName;
@@ -52,7 +54,7 @@ global class AccountManagemntAPI {
         return ''+a.id;
     }*/
     
-    
+    // Updating the account object record
     @HTTPPatch
     global static String updateAccount(){
         String fieldValue, fieldName;
@@ -86,7 +88,7 @@ global class AccountManagemntAPI {
         return (a.Id+'');
     }
     
-    
+    //inserting multiple account records at once
     @HTTPPut
     global static String insertMultiple(){
         RestRequest req = RestContext.request;
