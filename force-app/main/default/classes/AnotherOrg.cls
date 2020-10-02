@@ -1,5 +1,6 @@
 public with sharing class AnotherOrg 
 {
+    // this is the main function which will call the another sfdx org for data sync
     @future (callout=true)
     public static void callApi(String cID)
     {
@@ -34,6 +35,7 @@ public with sharing class AnotherOrg
             res = h.send(req);                
             System.debug(res.getBody());
             
+            //Updating new token in custom setting for further uses
             mahijat__APIBuild__c OldToken = [SELECT Id, mahijat__AccessTokenValue__c FROM mahijat__APIBuild__c];
             OldToken.mahijat__AccessTokenValue__c = Token;
             update OldToken;
@@ -48,7 +50,7 @@ public with sharing class AnotherOrg
         database.update(conFromSF);
     }
     
-    
+    // this function will generate a new access token for callout for the another org using the connected app creds
     public static String GenerateNewToken(){
         Http h1 = new Http();
         HttpRequest req1 = new HttpRequest();
@@ -68,6 +70,7 @@ public with sharing class AnotherOrg
         return Token;
     }
     
+    //Getting the Auth creds from custom setting
     public static mahijat__APIBuild__c getTokenFromSettings()
     {
         mahijat__APIBuild__c mp = [SELECT Id, mahijat__AccessTokenValue__c FROM mahijat__APIBuild__c];
