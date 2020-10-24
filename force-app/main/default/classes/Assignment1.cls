@@ -1,4 +1,5 @@
-global class Assignment1 implements Schedulable{
+gl1obal class Assignment1 implements Schedulable{
+	//this is a example of schedule class in salesforce
     global static void execute(SchedulableContext sc)
     {
         list<list<String>> l1 = new list<list<String>>{};
